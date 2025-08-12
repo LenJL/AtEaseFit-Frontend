@@ -23,7 +23,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/AtEaseFit/" element={<Home />} />
         <Route path="/About" element={<About />} />
         <Route path="/Signin" element={<Signin />} />
         <Route path="/Login" element={<Login />} />
