@@ -49,7 +49,7 @@ export default function Signin() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/signin", {
+      const res = await fetch("https://ateasefit.onrender.com/api/auth/signin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -91,7 +91,7 @@ export default function Signin() {
           googleId: res.data.sub,
         };
 
-        const response = await axios.post("http://localhost:5000/api/auth/google", userData);
+        const response = await axios.post("https://ateasefit.onrender.com/api/auth/google", userData);
         const data = response.data;
 
         if (data) {

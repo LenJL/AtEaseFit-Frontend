@@ -21,7 +21,7 @@ export default function Profile() {
       }
 
       try {
-        const response = await fetch("http://localhost:5000/api/auth/profile", {
+        const response = await fetch("https://ateasefit.onrender.com/api/auth/profile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${storedToken}`,
@@ -65,7 +65,7 @@ export default function Profile() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/auth/uploadProfilePic", {
+      const response = await fetch("https://ateasefit.onrender.com/api/auth/uploadProfilePic", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -120,7 +120,7 @@ export default function Profile() {
           <div className="flex flex-col items-center gap-4 pb-6 border-b border-gray-600">
             {/* Profile Picture */}
             <img
-              src={userProfile.profilePic ? `http://localhost:5000${userProfile.profilePic}` : "/AtEaseFit/profile.jpg"}
+              src={userProfile.profilePic ? `https://ateasefit.onrender.com${userProfile.profilePic}` : "/AtEaseFit/profile.jpg"}
               // Default if no image
               alt="Profile"
               className="w-28 h-28 rounded-full border-4 border-gray-500 shadow-lg"

@@ -15,7 +15,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch("https://ateasefit.onrender.com/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ export default function Login() {
         };
 
         const response = await axios.post(
-          "http://localhost:5000/api/auth/google",
+          "https://ateasefit.onrender.com/api/auth/google",
           userData
         );
 
