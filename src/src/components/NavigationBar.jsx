@@ -4,6 +4,8 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Link, useNavigate } from "react-router-dom";
 import profileicon from "./profile.svg";
+const API_BASE = import.meta.env.VITE_API_URL;
+
 
 const guestNavigation = [
   { name: "Home", href: "/AtEaseFit/" },
@@ -43,7 +45,7 @@ export default function Navigation() {
   const fetchUserProfile = async (token) => {
     setLoading(true);
     try {
-      const response = await fetch("https://ateasefit.onrender.com/api/auth/profile", {
+      const response = await fetch(`${API_BASE}/api/auth/profile`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

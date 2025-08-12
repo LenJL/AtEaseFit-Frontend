@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 
+const API_BASE = import.meta.env.VITE_API_URL;
+
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,7 +17,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("https://ateasefit.onrender.com/api/auth/login", {
+      const res = await fetch(`${API_BASE}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +58,7 @@ export default function Login() {
         };
 
         const response = await axios.post(
-          "https://ateasefit.onrender.com/api/auth/google",
+          `${API_BASE}/api/auth/google`,
           userData
         );
 
@@ -74,23 +76,27 @@ export default function Login() {
 
   return (
     <div className="flex h-screen w-full relative">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0">
-      <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
-        <video autoPlay loop muted className="w-full h-full object-cover">
-          <source src="/AtEaseFit/BGAtease.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+        <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
+          <video autoPlay loop muted className="w-full h-full object-cover">
+            <source src="/AtEaseFit/BGAtease.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
-      
+
       {/* Left Section */}
       <div className="flex flex-col justify-center pl-16 w-1/2 relative z-10">
-        <h1 className="text-white text-5xl font-bold">Welcome to <span className="text-indigo-400">AtEaseFit</span></h1>
-        <p className="text-white text-lg mt-4">Your fitness journey starts here. Log in to continue.</p>
+        <h1 className="text-white text-5xl font-bold">
+          Welcome to <span className="text-indigo-400">AtEaseFit</span>
+        </h1>
+        <p className="text-white text-lg mt-4">
+          Your fitness journey starts here. Log in to continue.
+        </p>
       </div>
-      
+
       {/* Right Section - Login Form */}
       <div className="flex justify-center items-center w-1/2 relative z-10">
         <div className="bg-white rounded-xl shadow-lg p-10 w-96">
@@ -98,7 +104,9 @@ export default function Login() {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-md font-medium">Email</label>
+              <label htmlFor="email" className="block text-md font-medium">
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -113,7 +121,9 @@ export default function Login() {
 
             {/* Password */}
             <div>
-              <label htmlFor="password" className="block text-md font-medium">Password</label>
+              <label htmlFor="password" className="block text-md font-medium">
+                Password
+              </label>
               <input
                 type="password"
                 name="password"
@@ -127,7 +137,12 @@ export default function Login() {
             </div>
 
             {/* Login Button */}
-            <button type="submit" className="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700">Log in</button>
+            <button
+              type="submit"
+              className="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700"
+            >
+              Log in
+            </button>
           </form>
 
           {/* Google Login */}
@@ -140,7 +155,13 @@ export default function Login() {
 
           {/* Sign Up Link */}
           <p className="text-center text-sm text-gray-600 mt-4">
-            Don't have an account? <span className="text-indigo-500 cursor-pointer" onClick={() => navigate("/Signin")}>Sign up here</span>
+            Don't have an account?{" "}
+            <span
+              className="text-indigo-500 cursor-pointer"
+              onClick={() => navigate("/Signin")}
+            >
+              Sign up here
+            </span>
           </p>
         </div>
       </div>

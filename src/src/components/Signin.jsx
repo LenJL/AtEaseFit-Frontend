@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+const API_BASE = import.meta.env.VITE_API_URL;
+
 
 export default function Signin() {
   const [formData, setFormData] = useState({
@@ -49,7 +51,7 @@ export default function Signin() {
     }
 
     try {
-      const res = await fetch("https://ateasefit.onrender.com/api/auth/signin", {
+      const res = await fetch(`${API_BASE}/api/auth/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -91,7 +93,7 @@ export default function Signin() {
           googleId: res.data.sub,
         };
 
-        const response = await axios.post("https://ateasefit.onrender.com/api/auth/google", userData);
+        const response = await axios.post(`${API_BASE}/api/auth/google`, userData);
         const data = response.data;
 
         if (data) {
