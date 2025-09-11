@@ -21,7 +21,7 @@ import Profile from "./components/Profile";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/AtEaseFit/">
       <Routes>
         <Route path="/AtEaseFit/" element={<Home />} />
         <Route path="/About" element={<About />} />
