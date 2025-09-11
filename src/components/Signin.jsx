@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function Signin() {
   const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ export default function Signin() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/signin", {
+      const res = await fetch(`${apiUrl}/api/auth/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +81,7 @@ export default function Signin() {
           googleId: res.data.sub,
         };
 
-        const response = await axios.post("http://localhost:5000/api/auth/google", userData);
+        const response = await axios.post(`${apiUrl}/api/auth/google`, userData);
         const data = response.data;
 
         if (data) {

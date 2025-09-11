@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function BMICalculator({ onBack, onBMIUpdate }) {
   const [bmiResult, setBmiResult] = useState(null);
@@ -26,7 +27,7 @@ export default function BMICalculator({ onBack, onBMIUpdate }) {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/auth/updateBMI", {
+      const response = await fetch(`${apiUrl}/api/auth/updateBMI`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -5,6 +5,7 @@
       import Navigation from "./NavigationBar";
       import PopUp from "./PopUp";
       import Tracker from "./Tracker";
+      const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
       export default function Profile() {
         const [userProfile, setUserProfile] = useState(null);
@@ -28,7 +29,7 @@
         
           const fetchProfile = async () => {
             try {
-              const response = await fetch("http://localhost:5000/api/auth/profile", {
+              const response = await fetch(`${apiUrl}/api/auth/profile`, {
                 method: "GET",
                 headers: {
                   Authorization: `Bearer ${storedToken}`,
@@ -75,7 +76,7 @@
           try {
             const token = localStorage.getItem("token");
             const response = await fetch(
-              "http://localhost:5000/api/auth/uploadProfilePic",
+              `${apiUrl}/api/auth/uploadProfilePic`,
               {
                 method: "POST",
                 headers: {
@@ -97,7 +98,7 @@
 
             setUserProfile((prev) => ({
               ...prev,
-              profilePic: `http://localhost:5000${
+              profilePic: `${apiUrl}${
                 data.profilePic
               }?t=${new Date().getTime()}`,
             }));
@@ -145,7 +146,7 @@
                     <img
                       src={
                         userProfile?.profilePic ||
-                        "http://localhost:5000/uploads/default.jpg"
+                        `${apiUrl}/uploads/default.jpg`
                       }
                       alt="Profile"
                       className="w-28 h-28 rounded-full border-4 shadow-lg object-cover"

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function BMRCalculator({ onBack, onBMRUpdate }) {
   const [calories, setCalories] = useState(null);
@@ -25,7 +26,7 @@ export default function BMRCalculator({ onBack, onBMRUpdate }) {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/auth/updateBMR", {
+      const response = await fetch(`${apiUrl}/api/auth/updateBMR`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

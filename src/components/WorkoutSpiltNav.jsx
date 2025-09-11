@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navigation from "./NavigationBar";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function WorkoutSplitNav({ onBack }) {
   const [showModal, setShowModal] = useState(true);
@@ -29,7 +30,7 @@ export default function WorkoutSplitNav({ onBack }) {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5000/api/auth/save-workout-split", {
+      const res = await fetch(`${apiUrl}/api/auth/save-workout-split`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

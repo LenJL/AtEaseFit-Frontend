@@ -4,6 +4,7 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Link, useNavigate } from "react-router-dom";
 import profileicon from "./profile.svg";
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 const guestNavigation = [
   { name: "Home", href: "/AtEaseFit/" },
@@ -43,7 +44,7 @@ export default function Navigation() {
   const fetchUserProfile = async (token) => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/api/auth/profile", {
+      const response = await fetch(`${apiUrl}/api/auth/profile`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -102,10 +103,10 @@ export default function Navigation() {
               {showProfileDropdown && (
                 <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-xl overflow-hidden">
                   <div className="p-4 flex items-center gap-3 bg-gray-100">
-                   <img src={userProfile?.profilePic || "http://localhost:5000/uploads/default.jpg"}alt="Profile" className="w-12 h-12 rounded-full" />
+                   <img src={userProfile?.profilePic || `${apiUrl}/uploads/default.jpg`}alt="Profile" className="w-12 h-12 rounded-full" />
                     <div>
                       <h4 className="font-semibold text-gray-800">{userProfile?.name || "User"}</h4>
-                      <p className="text-sm text-gray-500">{userProfile?.email || "example@gmail.com"}</p>
+                      <p className="text-sm text-gray-500">{userProfile?.email || "User"}</p>
                     </div>
                   </div>
                   <div className="py-2">

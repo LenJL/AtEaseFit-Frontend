@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Navigation from "./NavigationBar";
 import PopUp from "./PopUp";
 import "../styles/tailwind.css";
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function Tracker() {
   const [showModal, setShowModal] = useState(false);
@@ -22,7 +23,7 @@ export default function Tracker() {
       if (!token) return;
 
       try {
-        const res = await fetch("http://localhost:5000/api/auth/profile", {
+        const res = await fetch(`${apiUrl}/api/auth/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -70,7 +71,7 @@ export default function Tracker() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/workoutEntry", {
+      const response = await fetch(`${apiUrl}/api/auth/workoutEntry`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -117,7 +118,7 @@ export default function Tracker() {
   
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch("http://localhost:5000/api/auth/clearWorkoutEntries", {
+      const res = await fetch(`${apiUrl}/api/auth/clearWorkoutEntries`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
