@@ -76,7 +76,7 @@ export default function Female3Days() {
     <div className="relative min-h-screen flex flex-col overflow-hidden">
       <div className="fixed inset-0 -z-10">
         <video autoPlay loop muted className="w-full h-full object-cover">
-          <source src="/AtEaseFit/BGAtease.mp4" type="video/mp4" />
+          <source src="/BGAtease.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/50"></div>
@@ -124,7 +124,7 @@ export default function Female3Days() {
                         transition={{ duration: 0.6 }}
                       >
                         <img
-                          src={`/AtEaseFit/workouts/${exercise.gif}`}
+                          src={`/workouts/${exercise.gif}`}
                           alt={exercise.name}
                           className="w-full max-w-xs h-auto rounded-lg object-cover"
                         />

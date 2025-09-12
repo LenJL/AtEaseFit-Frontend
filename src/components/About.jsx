@@ -19,7 +19,7 @@
       {/* Background Video */}
       <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
         <video autoPlay loop muted className="w-full h-full object-cover">
-          <source src="/AtEaseFit/BGAtease.mp4" type="video/mp4" />
+          <source src="/BGAtease.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -33,27 +33,27 @@
             {
               title: "BMR",
               desc: "Basal Metabolic Rate helps you understand your daily calorie needs.",
-              img: "/AtEaseFit/images/bmr.jpg",
+              img: "/images/bmr.jpg",
             },
             {
               title: "BMI",
               desc: "Body Mass Index is a measure of body fat based on height and weight.",
-              img: "/AtEaseFit/images/BMI.jpg",
+              img: "/images/BMI.jpg",
             },
             {
               title: "Minimalist Workout Splits",
               desc: "A structured yet simple approach to effective workouts.",
-              img: "/AtEaseFit/images/workout.jpg",
+              img: "/images/workout.jpg",
             },
             {
               title: "Diet Composition",
               desc: "Learn the perfect balance of macros for your fitness goals.",
-              img: "/AtEaseFit/images/Dcomp.jpg",
+              img: "/images/Dcomp.jpg",
             },
             {
               title: "Progress Tracker",
               desc: "Monitor your improvements and stay motivated.",
-              img: "/AtEaseFit/images/tracker.jpg",
+              img: "/images/tracker.jpg",
             },
           ].map((item, index) => (
             <motion.div

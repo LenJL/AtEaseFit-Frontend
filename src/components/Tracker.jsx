@@ -140,7 +140,7 @@ export default function Tracker() {
   return (
     <div className="relative min-h-screen flex items-center justify-center">
       <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover">
-        <source src="/AtEaseFit/BGAtease.mp4" type="video/mp4" />
+        <source src="/BGAtease.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

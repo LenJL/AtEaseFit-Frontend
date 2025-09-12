@@ -29,7 +29,7 @@ export default function Login() {
       if (res.ok) {
         alert("Login successful!");
         localStorage.setItem("token", data.token);
-        navigate("/AtEaseFit/");
+        navigate("/");
       } else {
         alert(data.message);
       }
@@ -64,7 +64,7 @@ export default function Login() {
         if (response.data) {
           alert("Login successful!");
           localStorage.setItem("token", response.data.token);
-          navigate("/AtEaseFit/");
+          navigate("/");
         }
       } catch (error) {
         console.error("Google login error:", error);
@@ -79,7 +79,7 @@ export default function Login() {
       <div className="absolute inset-0">
       <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
         <video autoPlay loop muted className="w-full h-full object-cover">
-          <source src="/AtEaseFit/BGAtease.mp4" type="video/mp4" />
+          <source src="/BGAtease.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

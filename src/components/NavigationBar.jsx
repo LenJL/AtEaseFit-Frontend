@@ -7,13 +7,13 @@ import profileicon from "./profile.svg";
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 const guestNavigation = [
-  { name: "Home", href: "/AtEaseFit/" },
+  { name: "Home", href: "/" },
   { name: "Workout", href: "/WorkoutSpiltNav" },
   { name: "About", href: "/About" },
 ];
 
 const userNavigation = [
-  { name: "Home", href: "/AtEaseFit/" },
+  { name: "Home", href: "/" },
   { name: "Workout", href: "/WorkoutSpiltNav" },
   { name: "Tracker", href: "/Tracker" },
   { name: "Diet Composition", href: "/DietComp" },
@@ -70,13 +70,13 @@ export default function Navigation() {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
     setUserProfile(null);
-    navigate("/AtEaseFit/");
+    navigate("/");
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-20 bg-black/50">
       <nav className="relative flex items-center justify-between px-8 py-3">
-        <NavLink name="AtEaseFit" href="/AtEaseFit/" className="text-white text-xl font-bold" />
+        <NavLink name="AtEaseFit" href="/" className="text-white text-xl font-bold" />
         <button onClick={() => setMobileMenuOpen(true)} className="lg:hidden p-2.5 text-white">
           <Bars3Icon className="size-6" />
         </button>

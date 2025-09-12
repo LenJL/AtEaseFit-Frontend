@@ -57,7 +57,7 @@ export default function Signin() {
         if (data.redirectToUpload) {
           navigate("/upload-profile"); // Redirect to profile pic upload
         } else {
-          navigate("/AtEaseFit");
+          navigate("/");
         }
       } else {
         alert(data.message);
@@ -93,7 +93,7 @@ export default function Signin() {
           if (data.redirectToUpload) {
             navigate("/upload-profile");
           } else {
-            navigate("/AtEaseFit");
+            navigate("/");
           }
         }
       } catch (error) {
@@ -109,7 +109,7 @@ export default function Signin() {
       <div className="absolute inset-0">
         <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
           <video autoPlay loop muted className="w-full h-full object-cover">
-            <source src="/AtEaseFit/BGAtease.mp4" type="video/mp4" />
+            <source src="/BGAtease.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
